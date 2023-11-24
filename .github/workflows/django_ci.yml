@@ -27,10 +27,11 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Set up Python
-        uses: actions/setup-python@v2.3.0
+      - name: Set up Python 3.11.0
+        uses: actions/setup-python@v3
         with:
-          python-version: 3.11
+          python-version: '3.11.0'
+          cache: pip
 
       - name: Copying configurations
         run: |
@@ -49,11 +50,11 @@ jobs:
         run:
           pytest newspaper --cov=newspaper
 
-      - name: Posting Coverage
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        run: |
-          codecov
+#      - name: Posting Coverage
+#        env:
+#          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+#        run: |
+#          codecov
 
 
       - name: Set up Fly.io
