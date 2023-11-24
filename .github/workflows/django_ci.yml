@@ -50,11 +50,11 @@ jobs:
         run:
           pytest newspaper --cov=newspaper
 
-      - name: Posting Coverage
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        run: |
-          codecov
+#      - name: Posting Coverage
+#        env:
+#          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+#        run: |
+#          codecov
 
 
       - name: Set up Fly.io
