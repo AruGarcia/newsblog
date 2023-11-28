@@ -16,10 +16,6 @@ RUN set -ex && \
     rm -rf /root/.cache/
 COPY . /code
 
-RUN python manage.py collectstatic --noinput
-
-#mmm
-
 EXPOSE 8000
 
 CMD ["gunicorn", "--bind", ":8000", "--workers", "2", "newspaper.wsgi"]
