@@ -25,4 +25,6 @@ COPY . /code
 EXPOSE 8000
 
 # TODO: replace demo.wsgi with <project_name>.wsgi
+
 CMD ["gunicorn", "--bind", ":8000", "--workers", "2", "newsblog.wsgi"]
+
