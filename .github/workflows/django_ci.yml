@@ -65,10 +65,10 @@ jobs:
       - name: Set up Fly.io
         uses: superfly/flyctl-actions/setup-flyctl@master
 
-      - name: Deploy to Fly.io
-        if: github.ref == 'refs/heads/main'
-        run: |
-          flyctl deploy -a newsblog
-        env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-          
+#      - name: Deploy to Fly.io
+#        if: github.ref == 'refs/heads/main'
+#        run: |
+#          flyctl deploy -a newsblog
+#        env:
+#          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+#
