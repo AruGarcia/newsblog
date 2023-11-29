@@ -9,10 +9,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="ACosta" content="newsblog.fly.dev ">
+	<meta name="author" content="Acosta">
 	<link rel="shortcut icon" href="/static/favicon.png">
 
-	<meta name="description" content="" />
+	<meta name="description" content="Newsblog webapp" />
 	<meta name="keywords" content="bootstrap, bootstrap5" />
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,10 +32,7 @@
 
 	<link rel="stylesheet" href="/static/css/flatpickr.min.css">
 
-
-
-
-	<title>NewsBlog &mdash; Study project of Acosta with Bootstrap 5 Website Template</title>
+	<title>NewsBlog</title>
 </head>
 <body>
 
@@ -54,7 +51,7 @@
 				<div class="site-navigation">
 					<div class="row g-0 align-items-center">
 						<div class="col-2">
-							<a href="home.html" class="logo m-0 float-start">NewsBlog<span class="text-primary">.</span></a>
+							<a href="{% url 'base:home' %}" class="logo m-0 float-start">NewsBlog<span class="text-primary">.</span></a>
 						</div>
 						<div class="col-8 text-center">
 							<form action="#" class="search-form d-inline-block d-lg-none">
@@ -78,16 +75,7 @@
 								<li><a href="category.html">Food</a></li>
 							</ul>
 						</div>
-						<div class="col-2 text-end">
-							<a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
-								<span></span>
-							</a>
-							<form action="#" class="search-form d-none d-lg-inline-block">
-								<input type="text" class="form-control" placeholder="Search...">
-								<span class="bi-search"></span>
-							</form>
-						</div>
-					</div>
+                    </div>
 				</div>
 			</div>
 		</div>
