@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # app
-    'newspaper.base'
+    'newspaper.base',
+    'newspaper.inst',
 ]
 
 MIDDLEWARE = [
