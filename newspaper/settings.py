@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # app
     'newspaper.base',
     'newspaper.inst',
+    'newspaper.blog',
 ]
 
 MIDDLEWARE = [
