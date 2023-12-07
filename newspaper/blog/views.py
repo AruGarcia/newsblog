@@ -1,5 +1,11 @@
 from django.shortcuts import render
 
+from newspaper.blog.models import Post
+
 
 def blog_page_view(request):
-    return render(request, 'blog/blog.html')
+    all_posts_list = Post.objects.all()
+    context = {
+        'all_posts_list': all_posts_list,
+    }
+    return render(request, 'blog/blog.html', context)
