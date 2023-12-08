@@ -4,8 +4,7 @@ from django.contrib.auth import get_user_model
 from newspaper.blog.models import Post
 from django.template.loader import render_to_string
 
-
-# from newspaper.django_assetions import assert_contains
+from newspaper.django_assetions import assert_contains
 
 
 @pytest.fixture
@@ -35,6 +34,10 @@ def post(user):
 
 def test_status_code(resp):
     assert resp.status_code == 200
+
+
+def test_title_of_the_page(resp):
+    assert_contains(resp, 'data-aos="fade-up">Blog</h1>')
 
 
 def test_string_representation():
