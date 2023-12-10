@@ -17,3 +17,6 @@ def blog_detail_view(request, pk):
         'post': post,
     }
     return render(request, 'blog/post_detail.html', context)
+
+def blog_create_view(request):
+    return render(request, 'blog/post_new.html')
