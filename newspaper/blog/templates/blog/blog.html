@@ -24,7 +24,7 @@
           {% for post in all_posts_list %}
           <div class="blog-entry d-flex blog-entry-search-item">
             <a href="single.html" class="img-link me-4">
-              <img src="/static/images/img_1_sq.jpg" alt="Image" class="img-fluid">
+              <img src="{{ post.image.url }}" alt="Image" class="img-fluid">
             </a>
             <div>
               <span class="date">Apr. 14th, 2022 &bullet; <a href="#">Business</a></span>

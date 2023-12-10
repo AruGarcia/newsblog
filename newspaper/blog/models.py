@@ -1,5 +1,3 @@
-from django.utils import timezone
-
 from django.urls import reverse
 
 from django.contrib.auth import get_user_model
@@ -25,7 +23,12 @@ class Post(models.Model):
         max_length=20,
         choices=CATEGORY_CHOICES,
         default='Business',
+    )
 
+    image = models.ImageField(
+        upload_to='post_images/',
+        null=True,
+        blank=True
     )
 
     def __str__(self):
