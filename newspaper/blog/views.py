@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import CreateView
 
 from newspaper.blog.models import Post
 
@@ -18,5 +19,10 @@ def blog_detail_view(request, pk):
     }
     return render(request, 'blog/post_detail.html', context)
 
+
 def blog_create_view(request):
-    return render(request, 'blog/post_new.html')
+    return CreateView.as_view(
+        model=Post,
+        template_name='blog/post_new.html',
+        fields=['title', 'author', 'body']
+    )(request)
