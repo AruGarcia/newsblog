@@ -44,7 +44,10 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 
-    # app
+    # 3rd Party
+    'bootstrap5form',
+
+    # local
     'newspaper.base',
     'newspaper.inst',
     'newspaper.blog',
