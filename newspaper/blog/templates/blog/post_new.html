@@ -19,32 +19,27 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
-                    <form action="#">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
                         <div class="row">
-                            <form method="post" enctype="multipart/form-data">
-                                {% csrf_token %}
-                                <div class="row">
-                                    <div class="col-6 mb-3">
-                                        {{ form.title|bootstrap5form }}
-                                    </div>
-                                    <div class="col-6 mb-3">
-                                        {{ form.author|bootstrap5form }}
-                                    </div>
-                                    <div class="col-12 mb-3">
-                                        {{ form.body|bootstrap5form }}
-                                    </div>
-                                    <div class="col-12 mb-3">
-                                        {{ form.category|bootstrap5form }}
-                                    </div>
-                                    <div class="col-12 mb-3">
-                                        {{ form.image|bootstrap5form }}
-                                    </div>
-                                    <div class="col-12">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
-
+                            <div class="col-6 mb-3">
+                                {{ form.title|bootstrap5form }}
+                            </div>
+                            <div class="col-6 mb-3">
+                                {{ form.author|bootstrap5form }}
+                            </div>
+                            <div class="col-12 mb-3">
+                                {{ form.body|bootstrap5form }}
+                            </div>
+                            <div class="col-12 mb-3">
+                                {{ form.category|bootstrap5form }}
+                            </div>
+                            <div class="col-12 mb-3">
+                                {{ form.image|bootstrap5form }}
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
                         </div>
                     </form>
                 </div>
