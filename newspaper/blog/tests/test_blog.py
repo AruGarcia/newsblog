@@ -30,12 +30,14 @@ def test_post_content(create_post):
     assert str(post.title) == 'A good title'
     assert str(post.author.email) == 'test@email.com'
     assert str(post.body) == 'Nice body content'
+    assert post.category == 'Business'
+    assert str(post.image) == 'post_images/images.jpg'
 
 
 def test_post_template_content():
     posts = [
-        {'title': 'Title 1', 'body': 'Body 1'},
-        {'title': 'Title 2', 'body': 'Body 2'},
+        {'title': 'Title 1', 'body': 'Body 1', 'pk': 1},
+        {'title': 'Title 2', 'body': 'Body 2', 'pk': 2},
     ]
 
     rendered = render_to_string('blog/blog.html', {'all_posts_list': posts})
