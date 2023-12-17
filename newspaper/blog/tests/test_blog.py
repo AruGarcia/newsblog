@@ -106,3 +106,21 @@ def test_date_format(client, create_post):
             return
 
     assert False, "Formatted date not found"
+
+
+def test_category_format(client, create_post):
+    response = client.get(reverse('blog:blog'))
+
+    soup = BeautifulSoup(response.content, 'html.parser')
+    category_elements = soup.find_all('a')
+
+    for element in category_elements:
+        if element.parent.get('class') == ['date']:
+            formatted_category = element.get_text()
+
+            print("Formatted Category:", formatted_category)
+
+            assert formatted_category
+            return
+
+    assert False, "Formatted category not found"
