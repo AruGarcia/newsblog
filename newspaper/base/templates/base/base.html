@@ -55,11 +55,11 @@
 							</form>
 
 							<ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
-								<li class="active"><a href="home.html">Home</a></li>
+								<li class="active"><a href="{% url 'base:home' %}">Home</a></li>
 								<li class="has-children">
-									<a href="category.html">Pages</a>
+									<a>Pages</a>
 									<ul class="dropdown">
-										<li><a href="search-result.html">Search Result</a></li>
+{#										<li><a href="search-result.html">Search Result</a></li>#}
 										<li><a href="{% url 'blog:blog' %}">Blog</a></li>
 										<li><a href="{% url 'inst:about' %}">About</a></li>
 										<li><a href="{% url 'inst:contact' %}">Contact Us</a></li>
@@ -88,7 +88,7 @@
     	</div>
     </div>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/tiny-slider.js"></script' %}">
+    <script src="{% static 'js/tiny-slider.js' %}" ></script>
 
     <script src="{% static 'js/flatpickr.min.js' %}"></script>
 
