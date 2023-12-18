@@ -124,3 +124,13 @@ def test_category_format(client, create_post):
             return
 
     assert False, "Formatted category not found"
+
+
+def test_href_is_generated_correctly(create_post, client):
+    post = create_post
+
+    response = client.get(reverse('blog:blog'))
+    soup = BeautifulSoup(response.content, 'html.parser')
+    post_detail_url = reverse('blog:post_detail', kwargs={'pk': post.pk})
+
+    assert f'href="{post_detail_url}"' in str(soup)
