@@ -31,7 +31,7 @@
                             <div>
                                 <span class="date"> {{ post.date }} &bullet; <a href="#">{{ post.category }}</a></span>
                                 <h2><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-                                <p>{{ post.body|safe|truncatewords:50 }}</p>
+                                <p>{{ post.body|safe|truncatewords:50|linebreaks }}</p>
                                 <p><a href="{% url 'blog:post_detail' pk=post.pk %}"
                                       class="btn btn-sm btn-outline-primary">Read More</a></p>
                             </div>
