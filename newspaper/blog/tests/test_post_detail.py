@@ -3,15 +3,18 @@ import pytest
 from django.urls import reverse
 
 
-@pytest.mark.django_db
-def test_status_code(client, create_post):
+@pytest.fixture
+def resp(client, create_post, db):
     post_id = create_post.id
-    response = client.get(reverse('blog:post_detail', kwargs={'pk': post_id}))
-    assert response.status_code == 200
+    resp = client.get(reverse('blog:post_detail', kwargs={'pk': post_id}))
+    return resp
 
 
-@pytest.mark.django_db
-def test_post_content(create_post):
+def test_status_code(resp):
+    assert resp.status_code == 200
+
+
+def test_post_content(create_post, db):
     post = create_post
     assert str(post.title) == 'A good title'
     assert str(post.author.email) == 'test@email.com'
@@ -20,12 +23,9 @@ def test_post_content(create_post):
     assert str(post.image) == 'post_images/images.jpg'
 
 
-@pytest.mark.django_db
-def test_post_content_in_template(client, create_post):
+def test_post_content_in_template(resp, create_post, db):
     post = create_post
-    post_id = create_post.id
-    response = client.get(reverse('blog:post_detail', kwargs={'pk': post_id}))
-    assert post.title in str(response.content)
-    assert post.body in str(response.content)
-    assert post.category in str(response.content)
-    assert str(post.image) in str(response.content)
+    assert post.title in str(resp.content)
+    assert post.body in str(resp.content)
+    assert post.category in str(resp.content)
+    assert str(post.image) in str(resp.content)
