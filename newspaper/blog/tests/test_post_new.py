@@ -1,4 +1,5 @@
 import pytest
+from django.db import IntegrityError
 from django.urls import reverse
 from model_bakery import baker
 from forms import YourPostForm
@@ -55,3 +56,6 @@ def test_post_body_not_null(db):
     # Test that body cannot be null
     with pytest.raises(ValueError):
         baker.make('blog.Post', body=None)
+
+
+
