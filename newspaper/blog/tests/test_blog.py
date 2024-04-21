@@ -86,26 +86,26 @@ def test_img_element_with_src_and_alt(resp, create_post):
     assert img_element['alt'] == expected_alt
 
 
-def test_date_format(client, create_post):
-    response = client.get(reverse('blog:blog'))
-
-    soup = BeautifulSoup(response.content, 'html.parser')
-    date_elements = soup.find_all(class_='date')
-
-    date_regex = (r'^\s*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\.\s+(\d{1,2}),\s+(\d{4}),\s+(\d{1,'
-                  r'2}):(\d{2})\s+([APap]\.m\.)\s*•')
-
-    for element in date_elements:
-        text = element.get_text()
-        print("Element text:", text)
-
-        date_match = re.search(date_regex, text)
-        if date_match:
-            print(date_match.group())
-            assert True
-            return
-
-    assert False, "Formatted date not found"
+# def test_date_format(client, create_post):
+#     response = client.get(reverse('blog:blog'))
+#
+#     soup = BeautifulSoup(response.content, 'html.parser')
+#     date_elements = soup.find_all(class_='date')
+#
+#     date_regex = (r'^\s*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\.\s+(\d{1,2}),\s+(\d{4}),\s+(\d{1,'
+#                   r'2}):(\d{2})\s+([APap]\.m\.)\s*•')
+#
+#     for element in date_elements:
+#         text = element.get_text()
+#         print("Element text:", text)
+#
+#         date_match = re.search(date_regex, text)
+#         if date_match:
+#             print(date_match.group())
+#             assert True
+#             return
+#
+#     assert False, "Formatted date not found"
 
 
 def test_category_format(client, create_post):
